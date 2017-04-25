@@ -12,11 +12,11 @@ import { AuthGuard } from './auth.service';
 import { routes } from './app.routes';
 
 export const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  databaseUrl: '',
-  storageBucket: '',
-  messagingSenderId: ''
+  apiKey: 'AIzaSyDfSDi27oBMc3L4XjQThCtmSZhY316PuNI',
+  authDomain: 'loginapp-fe8b6.firebaseapp.com',
+  databaseUrl: 'https://loginapp-fe8b6.firebaseio.com',
+  storageBucket: 'loginapp-fe8b6.appspot.com',
+  messagingSenderId: '943473026317'
 };
 
 @NgModule({
