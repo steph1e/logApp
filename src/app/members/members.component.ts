@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { error, log } from 'util';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { Router } from '@angular/router';
+import { moveIn, fallIn, moveInLeft }from '../router.animations';
 
 @Component({
   selector: 'app-members',
@@ -6,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
+name: any;
+state: string = '';
 
-  constructor() { }
-
+  constructor(public af:AngularFire, private router: Router) { 
+    this.af.auth.subscribe(auth => {
+      if (auth){
+        this.name = auth;
+      }
+    });
+  }
+  logout(){
+    this.af.auth.logout();
+    console.log('logged out');
+    this.router.navigateByUrl('/login');
+  }
   ngOnInit() {
   }
 
