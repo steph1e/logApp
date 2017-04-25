@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { EmailComponent } from './email/email.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MembersComponent } from './members/members.component';
+import { AuthGuard } from './auth.service';
+import { routes } from './app.routes';
 
 export const firebaseConfig = {
   apiKey: '',
@@ -29,10 +31,11 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    routes
     
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
